@@ -32,7 +32,7 @@ void fans_menu();
 void direct_control_menu();
 void sensor_temps_menu();
 void calibration_menu();
-void(* resetFunc) (void) = 0;//declare reset function at address 0
+void(* resetFunc) (void) = 0; //declare reset function at address 0
 
 extern MenuItem* settingsMenu[];
 extern MenuItem* setpointMenu[];
