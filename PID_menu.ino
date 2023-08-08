@@ -16,8 +16,7 @@ void PID_menu(){
 
   while (PID_menu_exit == true)      // setpoint menu while loop
   {
-    int currentTime = millis() / 750;
-    oldTime = currentTime;
+    oldTime = millis() / 750;
     while(PID_val_received == false){
       int currentTime = millis() / 750;
       int deltaTime = currentTime - oldTime;
@@ -89,21 +88,21 @@ void PID_menu(){
             P_trans_val = P_entered_val/10.0;
             send_serial_command("P", 1, P_trans_val);
             lcd.setCursor(3,0);
-            lcd.print(P_trans_val,2);
+            lcd.print(P_trans_val,1);
             break;
           case 2: 
             I_entered_val = keypad_entry(I_entered_val, false, 4, 11, 0, 2, false); 
             I_trans_val = I_entered_val/10.0;
             send_serial_command("I", 1, I_trans_val);
             lcd.setCursor(11,0);
-            lcd.print(I_trans_val,2);
+            lcd.print(I_trans_val,1);
             break;
           case 3: 
             D_entered_val = keypad_entry(D_entered_val, false, 4, 3, 1, 2, false); 
             D_trans_val = D_entered_val/10.0;
             send_serial_command("D", 1, D_trans_val);
             lcd.setCursor(3,1);
-            lcd.print(D_trans_val,2);
+            lcd.print(D_trans_val,1);
             break;
           default: break;
         }

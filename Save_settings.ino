@@ -5,5 +5,6 @@ void save_settings(){
   lcd.print("Saved Settings");
   delay(2000);
   menu.back();
+  menu.up();
   menu.show();
 }

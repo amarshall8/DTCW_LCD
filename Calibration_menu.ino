@@ -14,12 +14,11 @@ void calibration_menu(){
 
   send_serial_command("CRCV", 1, NULL);
 
-  oldTime = millis() / 750;
+
 
   while (calibration_menu_exit == true)      // setpoint menu while loop
   {
-    int currentTime = millis() / 750;
-    oldTime = currentTime;
+    oldTime = millis() / 750;
     while(cal_recieved == false){
       int currentTime = millis() / 750;
       int deltaTime = currentTime - oldTime;
