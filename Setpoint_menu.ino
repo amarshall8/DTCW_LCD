@@ -63,6 +63,16 @@ void setpoint_menu(int default_setpoint, bool enable_on_call){
       lcd.print(char(0x7E));
     }
     
+    if (rt_temp < -10){
+      lcd.clear();
+      lcd.setCursor(2,0);
+      lcd.print("Invalid Temp");
+      lcd.setCursor(2,1);
+      lcd.print("Sensor  Data");
+      delay(3000);
+      goto exit_setpoint_menu;
+    }
+
     char key = keypad.getKey();
     switch (key)
     {

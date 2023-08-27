@@ -178,7 +178,7 @@ void setup() {
   lcd.print("Flugen Inc.");
   lcd.setCursor(6,1);
   lcd.print("DTCW");
-  delay(1000);
+  delay(2000);
   Serial.begin(57600);          // Instantiates serial communication over USB serial connector
   tempBoard.begin(4800);        // Instantiates serial communication to the second arduino board which controls temp and fans
   Serial.println("Online");     // Print on USB Serial that the board is turned on

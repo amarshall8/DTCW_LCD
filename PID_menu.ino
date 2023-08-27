@@ -44,7 +44,7 @@ void PID_menu(){
         lcd.clear();
         lcd.setCursor(1,0);
         lcd.print("TCU CON Failed");
-        delay(1500);
+        delay(3000);
         goto exit_pid_menu;
       }
     }
