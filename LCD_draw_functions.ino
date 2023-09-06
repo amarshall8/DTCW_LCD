@@ -13,11 +13,9 @@ void setpoint_template(){
 
 void calibration_template(){
   lcd.setCursor(1,0);
-  lcd.print("A:");
-  lcd.setCursor(9,0);
-  lcd.print("B:");
+  lcd.print("NT:");
   lcd.setCursor(1,1);
-  lcd.print("C:");
+  lcd.print("NB:");
 }
 
 void PID_template(){
@@ -31,11 +29,9 @@ void PID_template(){
 
 void sensor_temps_template(){
   lcd.setCursor(0,0);
-  lcd.print("A:");
-  lcd.setCursor(8,0);
-  lcd.print("B:");
+  lcd.print("NT:");
   lcd.setCursor(0,1);
-  lcd.print("C:");
+  lcd.print("NB:");
 }
 
 void fans_template(){
@@ -71,8 +67,8 @@ void rt_display(float temp_rt){
   if (temp_rt > 37) {
       lcd.write(byte(7));
       int currentTime = millis() / 500;
-      int deltaTime = currentTime - oldTime;
-      oldTime = currentTime;
+      int deltaTime = currentTime - oldTime2;
+      oldTime2 = currentTime;
       if (deltaTime >= 1){
         //Serial.println(hot_flash);
         lcd.setCursor(8,0);
@@ -87,6 +83,7 @@ void rt_display(float temp_rt){
   lcd.setCursor(11,0);
   lcd.print(temp_rt, 1);
   lcd.print(char(223));
+  lcd.print(" ");
 }
 
 void on_off_display(bool on_off, int lcd_col, int lcd_row){

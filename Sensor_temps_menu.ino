@@ -26,20 +26,14 @@ void sensor_temps_menu(){
       goto exit_st_menu;
     }  
     
-    if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 1){
-      lcd.setCursor(2,0);
+    if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 2){
+      lcd.setCursor(3,0);
       lcd.print(floatFromTCU, 2);
       last_msg_time = 0;
       tcuConnGood = true;
     }
-    else if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 2){
-      lcd.setCursor(10,0);
-      lcd.print(floatFromTCU, 2);
-      last_msg_time = 0;
-      tcuConnGood = true;
-    }
-    else if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 3){
-      lcd.setCursor(2,1);
+    else if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 1){
+      lcd.setCursor(3,1);
       lcd.print(floatFromTCU, 2);
       last_msg_time = 0;
       tcuConnGood = true;

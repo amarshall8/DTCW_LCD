@@ -56,8 +56,8 @@ void direct_control_menu(){
       }
       case '2': dc_pwm_selection = false; break;
       case '8': dc_pwm_selection = true; break;
-      case '6': if (dc_pwm_selection == false) {dc_on_off = true; on_off_display(dc_on_off, 9, 0); break;}
-      case '4': if (dc_pwm_selection == false) {dc_on_off = false; on_off_display(dc_on_off, 9, 0); break;}
+      case '6': if (dc_pwm_selection == false) {dc_on_off = true; on_off_display(dc_on_off, 10, 0); break;}
+      case '4': if (dc_pwm_selection == false) {dc_on_off = false; on_off_display(dc_on_off, 10, 0); break;}
       case '*': dc_menu_exit = false; break;
       default: break;
     }
@@ -76,5 +76,6 @@ void direct_control_menu(){
     prev_on_off_state = dc_on_off;
   }
   send_serial_command("DC", 0, NULL);
+  send_serial_command("F", 0, NULL);
   menu.show();
 }

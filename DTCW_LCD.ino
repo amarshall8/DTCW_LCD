@@ -32,6 +32,7 @@ void fans_menu();
 void direct_control_menu();
 void sensor_temps_menu();
 void calibration_menu();
+void reset_settings();
 void(* resetFunc) (void) = 0; //declare reset function at address 0
 
 extern MenuItem* settingsMenu[];
@@ -62,7 +63,8 @@ SUB_MENU(setpointMenu, mainMenu,
 SUB_MENU(settingsMenu, mainMenu,
     ITEM_COMMAND("Temp Cal", calibration_menu),
     ITEM_COMMAND("PID Tuning", PID_menu),
-    ITEM_COMMAND("Save Settings", save_settings)
+    ITEM_COMMAND("Save Settings", save_settings),
+    ITEM_COMMAND("RESET DEFAULTS", reset_settings)
 );
 
 // Diagnosic submenu
@@ -157,6 +159,7 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 //global variables for delta time and LCD flashing
 unsigned long oldTime = 0;
+unsigned long oldTime2 = 0;
 bool hot_flash = false;
 bool tcuConnGood = false;
 

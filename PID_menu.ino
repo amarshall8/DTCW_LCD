@@ -16,12 +16,15 @@ void PID_menu(){
 
   while (PID_menu_exit == true)      // setpoint menu while loop
   {
-    oldTime = millis() / 750;
+    Serial.println(oldTime);
+    oldTime = millis();
+    Serial.println(oldTime);
     while(PID_val_received == false){
-      int currentTime = millis() / 750;
-      int deltaTime = currentTime - oldTime;
+      unsigned long currentTime = millis();
+      unsigned long deltaTime = currentTime - oldTime;
       oldTime = currentTime;
-      if(deltaTime < 1){
+      Serial.println(deltaTime);
+      if(deltaTime < 750){
         recvWithStartEndMarkers();
         if (strcmp("P", commandFromTCU) == 0 && integerFromTCU == 0){
           lcd.setCursor(3,0);

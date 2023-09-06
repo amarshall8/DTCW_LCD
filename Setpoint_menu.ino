@@ -33,7 +33,7 @@ void setpoint_menu(int default_setpoint, bool enable_on_call){
     int deltaTime = currentTime - oldTime;
     oldTime = currentTime;
 
-    if(last_msg_time >= 40){
+    if(last_msg_time >= 100){
       tcuConnGood = false;
       lcd.clear();
       lcd.setCursor(1,0);
@@ -42,7 +42,7 @@ void setpoint_menu(int default_setpoint, bool enable_on_call){
       goto exit_setpoint_menu;
     }
 
-    if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 4){
+    if (strcmp("T", commandFromTCU) == 0 && integerFromTCU == 2){
       rt_temp = floatFromTCU;
       last_msg_time = 0;
     }
