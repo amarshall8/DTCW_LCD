@@ -40,7 +40,7 @@ extern MenuItem* setpointMenu[];
 extern MenuItem* diagMenu[];
 
 
-char low_temp[] = {'4',223,'C','\0'};       //Create 4C character array with degree symbol
+char low_temp[] = {'7',223,'C','\0'};       //Create 4C character array with degree symbol
 char high_temp[] = {'3','7',223,'C','\0'};  //Create 37C character array with degree symbol
 
 // Define the main menu
@@ -53,7 +53,7 @@ MAIN_MENU(
 
 // Setpoint submenu
 SUB_MENU(setpointMenu, mainMenu,
-    ITEM_COMMAND(low_temp, setpoint_4C),
+    ITEM_COMMAND(low_temp, setpoint_7C),
     ITEM_COMMAND(high_temp, setpoint_37C),
     ITEM_COMMAND("Manual Control", setpoint_25C)
 );
@@ -222,8 +222,8 @@ void loop() {
 }
 
 // Silly functions that pass default values and automatic enable signals to the setpoint_menu function
-void setpoint_4C(){
-  setpoint_menu(4,true);
+void setpoint_7C(){
+  setpoint_menu(7,true);
 }
 
 void setpoint_37C(){
