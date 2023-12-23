@@ -97,8 +97,6 @@ void setpoint_menu(int default_setpoint, bool enable_on_call){
       }
       case '2': en_selection = false; break;
       case '8': en_selection = true; break;
-      case '6': if (en_selection == true) {en_on_off = true; on_off_display(en_on_off, 11, 1); break;}
-      case '4': if (en_selection == true) {en_on_off = false; on_off_display(en_on_off, 11, 1); break;}
       case '*': setpoint_menu_exit = false; break;
       default: break;
     }
